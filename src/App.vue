@@ -1,18 +1,27 @@
 <template>
   <div id="app">
     <div>Hello World</div>
+    <div>{{ manager }}</div>
   </div>
 </template>
 
 <script>
-let web3 = require("./utils/initWeb3.js")
-
+let lotteryInstance = require("./eth/lotteryInstance.js")
 export default {
   name: 'App',
-
+  data: () => {
+    return {
+      manager: "hello",
+      winner: "",
+    }
+  },
+  beforeMount: async function() {
+    let manager = await lotteryInstance.methods.manager().call()
+    this.manager = manager
+  },
   methods: {
     test: () => {
-      console.log(web3)
+      console.log(lotteryInstance)
     }
   }
 }
