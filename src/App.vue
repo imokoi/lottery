@@ -1,17 +1,19 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div>Hello World</div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+let web3 = require("./utils/initWeb3.js")
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+
+  methods: {
+    test: () => {
+      console.log(web3)
+    }
   }
 }
 </script>
